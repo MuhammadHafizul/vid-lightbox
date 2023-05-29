@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Video Lightbox</title>
+    <style>
+      body {
+        background-color: #f4f4f4;
+        font-family: Arial, sans-serif;
+      }
+
+      .video-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .video-player {
+        position: relative;
+        width: 640px;
+        height: 360px;
+      }
+
+      .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Click the button to open the video lightbox</h1>
+    <button onclick="openLightbox('video1')">Open Video 1 Lightbox</button>
+    <button onclick="openLightbox('video2')">Open Video 2 Lightbox</button>
+    <button onclick="openLightbox('video3')">Open Video 3 Lightbox</button>
+    <button onclick="openLightbox('video4')">Open Video 4 Lightbox</button>
+
+    <div class="video-overlay" onclick="closeLightbox()">
+      <div class="video-player">
+        <span class="close-button">&times;</span>
+        <iframe
+          width="100%"
+          height="100%"
+          src=""
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+
+    <script>
+      function openLightbox(videoId) {
+        var overlay = document.querySelector(".video-overlay");
+        var videoPlayer = document.querySelector(".video-player iframe");
+        var videoUrl = getVideoUrl(videoId);
+        videoPlayer.setAttribute("src", videoUrl);
+        overlay.style.display = "flex";
+      }
+
+      function closeLightbox() {
+        var overlay = document.querySelector(".video-overlay");
+        var videoPlayer = document.querySelector(".video-player iframe");
+        videoPlayer.setAttribute("src", "");
+        overlay.style.display = "none";
+      }
+
+      function getVideoUrl(videoId) {
+        // to do Add logic here to retrieve the video URL based on the videoId
+        // You can use a switch statement or an object to map videoIds to URLs
+        // Return the appropriate URL for the given videoId
+        switch (videoId) {
+          case "video1":
+            return "https://vod-progressive.akamaized.net/exp=1685359996~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F4527%2F17%2F447637904%2F1964868032.mp4~hmac=4a04c4a9c9eb17908d9c259ca788c102a726225274efb0121ae09dbcda141834/vimeo-prod-skyfire-std-us/01/4527/17/447637904/1964868032.mp4";
+          case "video2":
+            return "https://vod-progressive.akamaized.net/exp=1685359996~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F4527%2F17%2F447637904%2F1964868032.mp4~hmac=4a04c4a9c9eb17908d9c259ca788c102a726225274efb0121ae09dbcda141834/vimeo-prod-skyfire-std-us/01/4527/17/447637904/1964868032.mp4";
+          case "video3":
+            return "https://vod-progressive.akamaized.net/exp=1685359996~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F4527%2F17%2F447637904%2F1964868032.mp4~hmac=4a04c4a9c9eb17908d9c259ca788c102a726225274efb0121ae09dbcda141834/vimeo-prod-skyfire-std-us/01/4527/17/447637904/1964868032.mp4";
+          case "video4":
+            return "https://vod-progressive.akamaized.net/exp=1685359996~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F4527%2F17%2F447637904%2F1964868032.mp4~hmac=4a04c4a9c9eb17908d9c259ca788c102a726225274efb0121ae09dbcda141834/vimeo-prod-skyfire-std-us/01/4527/17/447637904/1964868032.mp4";
+          default:
+            return "";
+        }
+      }
+    </script>
+  </body>
+</html>
